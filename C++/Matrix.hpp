@@ -48,6 +48,8 @@ public:
     Matrix<T>* getCol(unsigned int index) const;
     Matrix<T>* getRow(unsigned int index) const;
 
+    inline const std::vector<T> getElements() const {return elements;};
+
 private:
     std::vector<T> elements;
 };
