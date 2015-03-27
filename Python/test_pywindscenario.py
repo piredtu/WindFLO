@@ -34,3 +34,5 @@ print 'Energy Capture', ev.getEnergyOutput()
 print 'WakeFreeRatio', ev.getWakeFreeRatio()
 
 print 'omegas', ev.scenario.omegas
+
+print 'n_eval', ev.getNumberOfEvaluation()
