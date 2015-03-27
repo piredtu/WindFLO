@@ -124,6 +124,7 @@ cdef extern from "KusiakLayoutEvaluator.h":
         Matrix[double] getTurbineFitnesses()
         double getEnergyOutput()
         double getWakeFreeRatio()
+        int getNumberOfEvaluation()
         WindScenario scenario
 
 ## Cython implementation of the KusiakLayoutEvaluator C++ class ---------
@@ -156,6 +157,9 @@ cdef class PyKusiakLayoutEvaluator:
         cdef Matrix[double] *m = new Matrix[double](a.shape[0], a.shape[1], a.flatten().tolist())
         return self.thisptr.evaluate(m)
 
+    def getNumberOfEvaluation(self):
+        return self.thisptr.getNumberOfEvaluation()
+
     property scenario:
         def __get__(self):
             """
@@ -163,3 +167,11 @@ cdef class PyKusiakLayoutEvaluator:
             creating another parallel one in the __cinit__ method
             """
             return self.scenario
+
+def list_elements(sc):
+    """List the elements within a scenario"""
+    return filter(lambda x: x[0] != '_', dir(sc))
+
+def sc2dict(sc):
+    """Creates a dictionary corresponding to the scenario"""
+    return {k: getattr(sc, k) for k in list_elements(sc)}
