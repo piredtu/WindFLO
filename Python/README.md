@@ -3,7 +3,7 @@ This is an unofficial python wrapper for the WindFLO competition.
 The pyKusiakLayoutEvaluator.pyx is providing interfaces and wrapping classes to the C++ source files available in the ../C++ directory.
 
 ## Docker Image
-There is an auto-build image including an IPython (Jupyter) server and direct bash access. 
+There is an automated build image including an IPython (Jupyter) server and direct bash access. This is probably the easiest way to install everything, except if you happen to have windows 7 32bit (or older).
 
 ### Pull the image:
     
@@ -51,7 +51,8 @@ make bash_run
 ```
 
 ## Building and running locally
-Running make will build locally and run a test script file
+If you already have a working python distrib installed locally,
+running `make` will build locally and run a test script file
 
 ```bash
 make
