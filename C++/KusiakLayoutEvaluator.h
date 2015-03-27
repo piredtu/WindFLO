@@ -5,6 +5,7 @@
 #include "WindScenario.h"
 #include "Matrix.hpp"
 #include <limits>
+#include <stdio.h>
 
 class KusiakLayoutEvaluator : public WindFarmLayoutEvaluator {
   public:
